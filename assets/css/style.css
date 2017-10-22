@@ -1,0 +1,36 @@
+body {
+	margin: 30px 0 0 0;
+}
+
+.container {
+	width: 800px;
+}
+
+#user {
+	background: rgba(222, 233, 252,.5)
+}
+	#user .card-footer {
+		background: none;
+	}
+
+#opponent {
+	background: rgba(252,222,222, .5)
+}
+	#opponent .card-footer {
+		background: none;
+	}
+
+#chat {
+	margin-top: 30px;
+}
+
+	#chat-text {
+		overflow-y: scroll;
+		height: 200px;
+	}
+
+	#chat .card-footer {
+		background: none;
+	}
+
+

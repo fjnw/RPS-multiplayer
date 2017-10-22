@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RPS Multiplayer Game</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+
+<body>
+
+<div class="container">
+
+	<!-- user + opponent -->
+	<div class="row justify-content-md-center">
+		<div class="card-deck">
+			<!-- user square -->
+			<div class="card" id="user">
+				<div class="card-body">
+					<h4 class="card-title text-center">You</h4>
+					<p class="card-text">
+						Wins: <span id="user-win"></span>
+						<br>
+						Losses: <span id="user-loss"></span>
+						<br>
+						Ties: <span id="user-tie"></span>
+					</p>
+					<div class="text-center">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary active">
+							<input type="radio" name="options" id="user-r" autocomplete="off">Rock</label>
+							<label class="btn btn-primary">
+							<input type="radio" name="options" id="user-p" autocomplete="off">Paper</label>
+							<label class="btn btn-primary">
+							<input type="radio" name="options" id="user-s" autocomplete="off">Scissors</label>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">establishing connection...</small>
+				</div>
+			</div>
+			<!-- opponent square -->
+			<div class="card" id="opponent">
+				<div class="card-body">
+					<h4 class="card-title text-center">Opponent</h4>
+					<p class="card-text">
+						Wins: <span id="opponent-win"></span>
+						<br>
+						Losses: <span id="opponent-loss"></span>
+						<br>
+						Ties: <span id="opponent-tie"></span>
+					</p>
+					<div class="text-center">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-secondary active">
+							<input type="radio" name="options" id="opponent-r" autocomplete="off">Rock</label>
+							<label class="btn btn-secondary">
+							<input type="radio" name="options" id="opponent-p" autocomplete="off">Paper</label>
+							<label class="btn btn-secondary">
+							<input type="radio" name="options" id="opponent-s" autocomplete="off">Scissors</label>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">establishing connection...</small>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- chat -->
+	<div class="row justify-content-md-center" id="chat">
+		<div class="card-deck">
+			<div class="card col-12">
+				<div class="card-body">
+					<h4 class="card-title">Live Chat</h4>
+					<p class="card-text" data-spy="scroll" id="chat-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque voluptatem ipsum distinctio obcaecati, repellat aliquid totam quo aperiam nihil dolores ex dolore numquam tempora, cumque. Nemo omnis ipsa et asperiores? Maxime suscipit amet asperiores dicta eligendi aperiam accusantium dolore cupiditate molestias deserunt earum obcaecati in, quaerat distinctio cumque aspernatur necessitatibus quis dolores illo illum quas. Dolore error pariatur aut impedit dignissimos cum distinctio ratione vel iure maiores repellendus excepturi similique saepe nisi quaerat aspernatur possimus, doloribus perspiciatis quidem! Natus illo, aspernatur magnam architecto asperiores! Maiores aut eius laboriosam vitae quos, quam odio, quis eum atque, totam inventore quia. Recusandae rem, unde, dolores commodi ad debitis soluta iste ea cupiditate, laborum quod. Minima nulla repudiandae id deleniti consectetur saepe eius, commodi vitae quod distinctio ab eligendi ut alias sequi, dolorem veritatis nemo quaerat fugit magni ex adipisci cumque praesentium reiciendis quibusdam? Nobis rem assumenda illum velit, qui iure aliquam rerum modi quos. Eius dolorum molestiae asperiores. Vero deserunt quam provident aut assumenda at ratione, enim, dignissimos optio itaque dicta porro inventore veniam, architecto aliquam labore nihil consequatur harum debitis, officia praesentium. Incidunt ut molestias temporibus eaque, maiores asperiores minima. Veritatis vel quo tempora reiciendis laborum harum atque voluptas, suscipit optio. Porro.</p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">establishing connection...</small>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- login (login or create account) + logout buttons -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">Login</button>
+	<button type="button" class="btn btn-secondary" id="logout">Logout</button>
+
+	<!-- modal for login -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<!-- modal tab links -->
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="home" aria-selected="true">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#account" role="tab" aria-controls="profile" aria-selected="false">Create Account</a>
+						</li>
+					</ul>
+					<!-- login tab -->
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+							<form>
+								<div class="form-group">
+									<label for="login-email" class="col-form-label">Email:</label>
+									<input type="email" class="form-control" id="login-email">
+								</div>
+								<div class="form-group">
+									<label for="login-password" class="col-form-label">Password:</label>
+									<input type="password" class="form-control" id="login-password">
+								</div>
+							</form>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" id="login-btn">Login</button>
+						</div>
+						<!-- create account tab -->
+						<div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+							<form>
+								<div class="form-group">
+									<label for="account-name" class="col-form-label">Username:</label>
+									<input type="text" class="form-control" id="account-name">
+								</div>
+								<div class="form-group">
+									<label for="account-email" class="col-form-label">Email:</label>
+									<input type="text" class="form-control" id="account-email">
+								</div>
+								<div class="form-group">
+									<label for="account-password" class="col-form-label">Password:</label>
+									<input type="text" class="form-control" id="account-password">
+								</div>
+							</form>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" id="account-btn">Create Account</button>
+						</div>
+						<!-- user interface response -->
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						</div>
+						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</div> <!-- container -->
+
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
